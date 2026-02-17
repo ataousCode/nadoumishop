@@ -1,37 +1,29 @@
-import { NotificationQueueProducer } from "./queue/notification.queue";
-import { EmailPayload } from "./notification.types";
+import { NotificationRepository } from "./notification.repository";
+import { CreateNotificationInput } from "./dto/notification.dto";
 
-const notificationQueueProducer = new NotificationQueueProducer();
+const notificationRepository = new NotificationRepository();
 
 export class NotificationService {
-  async sendEmail(payload: EmailPayload) {
-    await notificationQueueProducer.addEmailJob(payload);
+  async createNotification(data: CreateNotificationInput) {
+    return await notificationRepository.create(data);
   }
 
-  async sendWelcomeEmail(to: string, name: string) {
-    await this.sendEmail({
-      to,
-      subject: "Welcome to Nadoumi Shop!",
-      template: "welcome",
-      context: { name, year: new Date().getFullYear() },
-    });
+  async getMyNotifications(userId: string) {
+    return await notificationRepository.findByUser(userId);
   }
 
-  async sendOtpEmail(to: string, name: string, otp: string) {
-    await this.sendEmail({
-      to,
-      subject: "Verify Your Account",
-      template: "otp-verification",
-      context: { name, otp, year: new Date().getFullYear() },
-    });
+  async getUnreadCount(userId: string) {
+    const unread = await notificationRepository.findUnreadByUser(userId);
+    return unread.length;
   }
 
-  async sendPasswordResetEmail(to: string, name: string, resetLink: string) {
-    await this.sendEmail({
-      to,
-      subject: "Reset Your Password",
-      template: "reset-password",
-      context: { name, resetUrl: resetLink, year: new Date().getFullYear() },
-    });
+  async markAsRead(id: string) {
+    return await notificationRepository.markAsRead(id);
+  }
+
+  async deleteNotification(id: string) {
+    return await notificationRepository.delete(id);
   }
 }
+
+export const notificationService = new NotificationService();

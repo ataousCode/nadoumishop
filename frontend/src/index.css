@@ -1,38 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  /* Enterprise Color Palette */
-  --color-primary: #0f172a; /* Slate 900 - Deep, professional blue-black */
-  --color-primary-foreground: #f8fafc; /* Slate 50 */
-
+  /* Core Foundation Variables */
   --color-background: #ffffff;
   --color-foreground: #0f172a;
-
-  --color-secondary: #334155; /* Slate 700 */
-  --color-secondary-foreground: #f1f5f9; /* Slate 100 */
-
-  --color-accent: #2563eb; /* Blue 600 - Trustworthy accent */
+  --color-primary: #0f172a;
+  --color-primary-foreground: #f8fafc;
+  --color-secondary: #334155;
+  --color-secondary-foreground: #f1f5f9;
+  --color-accent: #2563eb;
   --color-accent-foreground: #ffffff;
-
-  --color-destructive: #ef4444; /* Red 500 */
+  --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
-
-  --color-muted: #f1f5f9; /* Slate 100 */
-  --color-muted-foreground: #64748b; /* Slate 500 */
-
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
   --color-card: #ffffff;
   --color-card-foreground: #0f172a;
-
   --color-popover: #ffffff;
   --color-popover-foreground: #0f172a;
+  --color-input: #e2e8f0;
+  --color-ring: #2563eb;
 
-  --color-input: #e2e8f0; /* Slate 200 */
-  --color-ring: #2563eb; /* Blue 600 */
+  /* Amazon-เฉพาะ Color Palette */
+  --color-amazon-dark: #131921;
+  --color-amazon-navy: #232f3e;
+  --color-amazon-yellow: #febd69;
+  --color-amazon-gold: #f3a847;
+  --color-amazon-teal: #007185;
+  --color-amazon-orange: #c7511f;
+  --color-amazon-gray: #f0f2f2;
 
   /* Typography */
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-display:
-    "Clash Display", system-ui, sans-serif; /* Example modern font */
 
   /* Border Radius */
   --radius-sm: 0.375rem;
@@ -42,44 +41,19 @@
 
 /* Global Reset & Base Styles */
 @layer base {
-  :root {
-    background-color: #f8fafc; /* Slate 50 background */
-    color: #0f172a; /* Slate 900 text */
-  }
-
   body {
-    @apply font-sans antialiased;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold tracking-tight;
-  }
-
-  h1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl;
-  }
-
-  h2 {
-    @apply text-3xl sm:text-4xl;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
 }
 
-/* Utility classes for enterprise look */
 @layer components {
   .container-enterprise {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-sm rounded-md px-4 py-2 font-medium;
-  }
-
-  .card-enterprise {
-    @apply bg-card text-card-foreground rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

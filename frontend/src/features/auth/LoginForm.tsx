@@ -23,7 +23,12 @@ export const LoginForm = () => {
   const onSubmit = async (data: LoginDto) => {
     const resultAction = await dispatch(login(data));
     if (login.fulfilled.match(resultAction)) {
-      navigate("/dashboard");
+      const user = resultAction.payload.user;
+      if (user.role === "ADMIN") {
+        navigate("/admin");
+      } else {
+        navigate("/dashboard");
+      }
     }
   };
 

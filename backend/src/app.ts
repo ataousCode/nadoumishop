@@ -26,6 +26,11 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(cookieParser());
+
+// Serve static files
+const publicPath = path.join(__dirname, "../public");
+app.use(express.static(publicPath));
+
 import logger from "./utils/logger";
 
 const morganFormat = ":method :url :status :response-time ms";

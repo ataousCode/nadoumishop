@@ -28,17 +28,19 @@ enum PaymentStatus {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  email     String    @unique
-  password  String
-  name      String?
-  role      Role      @default(USER)
-  addresses Address[]
-  orders    Order[]
-  reviews   Review[]
-  cart      Cart?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @default(now()) @updatedAt
+  id             String    @id @default(uuid())
+  email          String    @unique
+  password       String
+  name           String?
+  role           Role      @default(USER)
+  addresses      Address[]
+  orders         Order[]
+  reviews        Review[]
+  cart           Cart?
+  wishlist       Wishlist?
+  profilePicture String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now()) @updatedAt
 
   // Auth fields
   isVerified           Boolean        @default(false)
@@ -49,6 +51,8 @@ model User {
   loginAttempts        Int            @default(0)
   lockoutUntil         DateTime?
   refreshTokens        RefreshToken[]
+  notifications        Notification[]
+  isBlocked            Boolean        @default(false)
 }
 
 model Address {
@@ -61,22 +65,27 @@ model Address {
   isDefault Boolean @default(false)
   userId    String
   user      User    @relation(fields: [userId], references: [id])
+  orders    Order[]
 }
 
 model Product {
-  id          String      @id @default(uuid())
-  name        String
-  description String
-  price       Decimal
-  stock       Int
-  images      String[]
-  categoryId  String
-  category    Category    @relation(fields: [categoryId], references: [id])
-  reviews     Review[]
-  orderItems  OrderItem[]
-  cartItems   CartItem[]
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id           String         @id @default(uuid())
+  name         String
+  description  String
+  price        Decimal
+  stock        Int
+  discount     Int            @default(0)
+  images       String[]
+  categoryId   String
+  category     Category       @relation(fields: [categoryId], references: [id])
+  isNewArrival Boolean        @default(false)
+  isBestSeller Boolean        @default(false)
+  reviews      Review[]
+  orderItems   OrderItem[]
+  cartItems    CartItem[]
+  wishlists    WishlistItem[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
 }
 
 model Category {
@@ -92,7 +101,7 @@ model Review {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   productId String
-  product   Product  @relation(fields: [productId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
 }
 
@@ -105,18 +114,22 @@ model Cart {
 }
 
 model CartItem {
-  id        String  @id @default(uuid())
+  id        String   @id @default(uuid())
   cartId    String
-  cart      Cart    @relation(fields: [cartId], references: [id])
+  cart      Cart     @relation(fields: [cartId], references: [id])
   productId String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Order {
   id            String        @id @default(uuid())
   userId        String
   user          User          @relation(fields: [userId], references: [id])
+  addressId     String?
+  address       Address?      @relation(fields: [addressId], references: [id])
   items         OrderItem[]
   totalAmount   Decimal
   status        OrderStatus   @default(PENDING)
@@ -156,4 +169,40 @@ model RefreshToken {
   revoked         Boolean  @default(false)
   replacedByToken String?
   createdAt       DateTime @default(now())
+}
+
+model Wishlist {
+  id        String         @id @default(uuid())
+  userId    String         @unique
+  user      User           @relation(fields: [userId], references: [id])
+  items     WishlistItem[]
+  updatedAt DateTime       @updatedAt
+}
+
+model WishlistItem {
+  id         String   @id @default(uuid())
+  wishlistId String
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id])
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+}
+
+enum NotificationType {
+  ORDER
+  PAYMENT
+  CANCELATION
+  SYSTEM
+}
+
+model Notification {
+  id        String           @id @default(uuid())
+  title     String
+  message   String
+  type      NotificationType @default(SYSTEM)
+  isRead    Boolean          @default(false)
+  userId    String? // Null if it's a broadcast to all admins
+  user      User?            @relation(fields: [userId], references: [id])
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
 }

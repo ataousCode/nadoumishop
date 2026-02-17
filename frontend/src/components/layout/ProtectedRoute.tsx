@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../store";
 import { Loader2 } from "lucide-react";
 
-export const ProtectedRoute = () => {
-  const { isAuthenticated, isInitialized } = useSelector(
+interface ProtectedRouteProps {
+  allowedRoles?: string[];
+}
+
+export const ProtectedRoute = ({ allowedRoles }: ProtectedRouteProps) => {
+  const { isAuthenticated, isInitialized, user } = useSelector(
     (state: RootState) => state.auth,
   );
   const location = useLocation();
@@ -15,6 +19,15 @@ export const ProtectedRoute = () => {
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
+  }
+
+  if (
+    isAuthenticated &&
+    allowedRoles &&
+    user &&
+    !allowedRoles.includes(user.role)
+  ) {
+    return <Navigate to="/" replace />;
   }
 
   return isAuthenticated ? (

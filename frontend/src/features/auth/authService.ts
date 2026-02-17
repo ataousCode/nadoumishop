@@ -56,4 +56,14 @@ export const authService = {
     });
     return response.data;
   },
+
+  updateProfile: async (data: any) => {
+    const response = await api.patch("/users/me", data);
+    return response.data;
+  },
+
+  updatePassword: async (data: any) => {
+    const response = await api.patch("/users/change-password", data);
+    return response.data;
+  },
 };

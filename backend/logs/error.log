@@ -1,0 +1,1725 @@
+2026-02-16 23:38:44:3844 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-16 23:49:26:4926 [31merror[39m: [31mERROR 💥 body.categoryId: Invalid category ID[39m
+2026-02-16 23:53:44:5344 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-16 23:57:23:5723 [31merror[39m: [31mERROR 💥 body.images.0: Invalid input: expected string, received array, body.images.1: Invalid input: expected string, received object[39m
+2026-02-16 23:57:24:5724 [31merror[39m: [31mERROR 💥 body.images.0: Invalid input: expected string, received array, body.images.1: Invalid input: expected string, received object[39m
+2026-02-16 23:57:25:5725 [31merror[39m: [31mERROR 💥 body.images.0: Invalid input: expected string, received array, body.images.1: Invalid input: expected string, received object[39m
+2026-02-16 23:57:25:5725 [31merror[39m: [31mERROR 💥 body.images.0: Invalid input: expected string, received array, body.images.1: Invalid input: expected string, received object[39m
+2026-02-16 23:57:33:5733 [31merror[39m: [31mERROR 💥 body.images.0: Invalid input: expected string, received array, body.images.1: Invalid input: expected string, received object[39m
+2026-02-16 23:58:34:5834 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.user.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/user/user.repository.ts:14:24[39m
+
+[31m  11 }[39m
+[31m  12 [39m
+[31m  13 async update(id: string, data: any): Promise<User | any> {[39m
+[31m→ 14   return prisma.user.update({[39m
+[31m         where: {[39m
+[31m           id: "7a46824d-e22b-453a-8788-1ea199806fbe"[39m
+[31m         },[39m
+[31m         data: {[39m
+[31m           profilePicture: {}[39m
+[31m                           ~~[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `profilePicture`: Invalid value provided. Expected String or Null, provided Object.[39m
+2026-02-17 00:08:44:844 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 00:23:54:2354 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 00:24:42:2442 [31merror[39m: [31mERROR 💥 Can't find /images/products/test.txt on this server![39m
+2026-02-17 00:39:19:3919 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 00:54:53:5453 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 00:57:26:5726 [31merror[39m: [31mERROR 💥 Can't find /favicon.ico on this server![39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isNewArrival: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:18:018 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 01:00:24:024 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isNewArrival: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:24:024 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:24:024 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:24:024 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:38:038 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:38:038 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:38:038 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:00:38:038 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:01:04:14 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 01:01:04:14 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 01:01:14:114 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 01:01:14:114 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 01:01:33:133 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isBestSeller: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:01:33:133 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:01:33:133 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:01:33:133 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:06:46:646 [31merror[39m: [31mUNHANDLED REJECTION! 💥 Shutting down...[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:27:58:2758 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:28:05:285 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:28:05:285 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:28:05:285 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:28:05:285 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:29:00:290 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:02:292 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:06:296 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:06:296 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:06:296 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:07:297 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:07:297 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:29:15:2915 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:30:48:3048 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:30:49:3049 [31merror[39m: [31mERROR 💥 body.isNewArrival: Invalid input: expected boolean, received string, body.isBestSeller: Invalid input: expected boolean, received string[39m
+2026-02-17 01:30:54:3054 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:30:54:3054 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isBestSeller: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:30:54:3054 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:30:54:3054 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:31:01:311 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:31:01:311 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:31:01:311 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:31:01:311 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isBestSeller: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:04:504 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isBestSeller: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:04:504 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:04:504 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:04:504 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:06:506 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:06:506 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:06:506 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:07:507 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:13:5013 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 01:50:17:5017 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:17:5017 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:17:5017 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:17:5017 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:50:51:5051 [31merror[39m: [31mERROR 💥 Database Error: /Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:142:33   139 }   140    141 async delete(id: string) { Foreign key constraint violated: `CartItem_productId_fkey (index)`[39m
+2026-02-17 01:50:54:5054 [31merror[39m: [31mERROR 💥 Database Error: /Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:142:33   139 }   140    141 async delete(id: string) { Foreign key constraint violated: `CartItem_productId_fkey (index)`[39m
+2026-02-17 01:51:06:516 [31merror[39m: [31mERROR 💥 Database Error: /Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:142:33   139 }   140    141 async delete(id: string) { Foreign key constraint violated: `CartItem_productId_fkey (index)`[39m
+2026-02-17 01:52:45:5245 [31merror[39m: [31mERROR 💥 Database Error: /Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:142:33   139 }   140    141 async delete(id: string) { Foreign key constraint violated: `CartItem_productId_fkey (index)`[39m
+2026-02-17 01:53:38:5338 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:53:38:5338 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:53:38:5338 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:53:38:5338 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:54:52:5452 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.count()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:91:22[39m
+
+[31m  88   take,[39m
+[31m  89   orderBy,[39m
+[31m  90 }),[39m
+[31m→ 91 prisma.product.count({[39m
+[31m       select: {[39m
+[31m         _count: {[39m
+[31m           select: {[39m
+[31m             _all: true[39m
+[31m           }[39m
+[31m         }[39m
+[31m       },[39m
+[31m       where: {[39m
+[31m         isNewArrival: "true"[39m
+[31m                       ~~~~~~[39m
+[31m       }[39m
+[31m     })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:54:52:5452 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:54:52:5452 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isBestSeller: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isBestSeller`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:54:52:5452 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.findMany()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:77:22[39m
+
+[31m  74 }[39m
+[31m  75 [39m
+[31m  76 const [products, total] = await Promise.all([[39m
+[31m→ 77   prisma.product.findMany({[39m
+[31m         where: {[39m
+[31m           isNewArrival: "true"[39m
+[31m                         ~~~~~~[39m
+[31m         },[39m
+[31m         include: {[39m
+[31m           category: true,[39m
+[31m           reviews: {[39m
+[31m             select: {[39m
+[31m               rating: true[39m
+[31m             }[39m
+[31m           }[39m
+[31m         },[39m
+[31m         skip: 0,[39m
+[31m         take: 4,[39m
+[31m         orderBy: {[39m
+[31m           createdAt: "desc"[39m
+[31m         }[39m
+[31m       })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected BoolFilter or Boolean, provided String.[39m
+2026-02-17 01:59:48:5948 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 02:02:49:249 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "c2cf12ec-e05a-4122-ac2c-a2f3ba896b80"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing men",[39m
+[31m            description: "TESTING MAN TSHIRT",[39m
+[31m            price: 23.1,[39m
+[31m            stock: 200,[39m
+[31m            categoryId: "8db1ca3e-1e53-4582-b7d5-0df2bc487f86",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:02:50:250 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "c2cf12ec-e05a-4122-ac2c-a2f3ba896b80"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing men",[39m
+[31m            description: "TESTING MAN TSHIRT",[39m
+[31m            price: 23.1,[39m
+[31m            stock: 200,[39m
+[31m            categoryId: "8db1ca3e-1e53-4582-b7d5-0df2bc487f86",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:02:51:251 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "c2cf12ec-e05a-4122-ac2c-a2f3ba896b80"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing men",[39m
+[31m            description: "TESTING MAN TSHIRT",[39m
+[31m            price: 23.1,[39m
+[31m            stock: 200,[39m
+[31m            categoryId: "8db1ca3e-1e53-4582-b7d5-0df2bc487f86",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:02:51:251 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "c2cf12ec-e05a-4122-ac2c-a2f3ba896b80"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing men",[39m
+[31m            description: "TESTING MAN TSHIRT",[39m
+[31m            price: 23.1,[39m
+[31m            stock: 200,[39m
+[31m            categoryId: "8db1ca3e-1e53-4582-b7d5-0df2bc487f86",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:02:51:251 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "c2cf12ec-e05a-4122-ac2c-a2f3ba896b80"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing men",[39m
+[31m            description: "TESTING MAN TSHIRT",[39m
+[31m            price: 23.1,[39m
+[31m            stock: 200,[39m
+[31m            categoryId: "8db1ca3e-1e53-4582-b7d5-0df2bc487f86",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:03:30:330 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "7da2af5f-ee95-479b-80bc-68aa503f5125"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing",[39m
+[31m            description: "afasdfasdfasdfasdfasdfasdfasdfas",[39m
+[31m            price: 100,[39m
+[31m            stock: 12,[39m
+[31m            categoryId: "612abe48-a11b-4d14-8736-4e300531aa18",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:03:39:339 [31merror[39m: [31mERROR 💥 [39m
+[31mInvalid `prisma.product.update()` invocation in[39m
+[31m/Users/mac/Desktop/nadoumishop/backend/src/modules/product/product.repository.ts:135:27[39m
+
+[31m  132 }[39m
+[31m  133 [39m
+[31m  134 async update(id: string, data: UpdateProductInput) {[39m
+[31m→ 135   return prisma.product.update({[39m
+[31m          where: {[39m
+[31m            id: "7da2af5f-ee95-479b-80bc-68aa503f5125"[39m
+[31m          },[39m
+[31m          data: {[39m
+[31m            name: "Testing",[39m
+[31m            description: "afasdfasdfasdfasdfasdfasdfasdfas",[39m
+[31m            price: 100,[39m
+[31m            stock: 12,[39m
+[31m            categoryId: "612abe48-a11b-4d14-8736-4e300531aa18",[39m
+[31m            isNewArrival: "false",[39m
+[31m                          ~~~~~~~[39m
+[31m            isBestSeller: "true"[39m
+[31m          }[39m
+[31m        })[39m
+
+[31mArgument `isNewArrival`: Invalid value provided. Expected Boolean or BoolFieldUpdateOperationsInput, provided String.[39m
+2026-02-17 02:05:43:543 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:09:25:925 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 02:09:25:925 [31merror[39m: [31mERROR 💥 Invalid email or password[39m
+2026-02-17 02:11:59:1159 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:25:33:2533 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:25:33:2533 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:25:33:2533 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 02:25:33:2533 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 02:47:18:4718 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:47:18:4718 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:48:11:4811 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 02:48:11:4811 [31merror[39m: [31mERROR 💥 Invalid token or token expired[39m
+2026-02-17 03:02:22:222 [31merror[39m: [31mERROR 💥 The user belonging to this token does no longer exist.[39m
+2026-02-17 03:02:22:222 [31merror[39m: [31mERROR 💥 The user belonging to this token does no longer exist.[39m
+2026-02-17 03:02:22:222 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 03:02:22:222 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 The user belonging to this token does no longer exist.[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 The user belonging to this token does no longer exist.[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 Invalid or expired refresh token[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 03:02:33:233 [31merror[39m: [31mERROR 💥 You are not logged in! Please log in to get access.[39m
+2026-02-17 03:16:32:1632 [31merror[39m: [31mERROR 💥 Can't find /api/products on this server![39m
+2026-02-17 16:36:54:3654 [31merror[39m: [31mERROR 💥 Invalid email or password[39m

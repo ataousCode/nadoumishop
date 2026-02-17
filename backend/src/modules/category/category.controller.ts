@@ -6,8 +6,7 @@ import { updateCategorySchema } from "./dto/update-category.dto";
 
 export const createCategory = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const result = createCategorySchema.parse(req.body);
-    const category = await categoryService.createCategory(result.body);
+    const category = await categoryService.createCategory(req.body);
 
     res.status(201).json({
       status: "success",
@@ -49,10 +48,9 @@ export const getCategory = catchAsync(
 
 export const updateCategory = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const result = updateCategorySchema.parse(req.body);
     const category = await categoryService.updateCategory(
       req.params.id as string,
-      result.body,
+      req.body,
     );
 
     res.status(200).json({

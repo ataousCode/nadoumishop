@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../utils/AppError";
 import { env } from "../config/env";
-import { Logger } from "../utils/logger";
+import Logger from "../utils/logger";
 import { Prisma } from "@prisma/client";
 import { ZodError } from "zod";
 
@@ -34,25 +34,45 @@ const handlePrismaError = (err: Prisma.PrismaClientKnownRequestError) => {
       return new AppError("A record with this field already exists.", 409);
     case "P2025": // Record not found
       return new AppError("Record not found.", 404);
-    default:
-      return new AppError(`Database Error: ${err.message}`, 500);
+    default: {
+      // Sanitize Prisma's technical details from the message
+      const sanitizedMessage =
+        err.message
+          .split("\n")
+          .filter(
+            (line) =>
+              line && !line.includes("prisma.") && !line.includes("invocation"),
+          )
+          .join(" ")
+          .trim() || "Database error occurred";
+      return new AppError(`Database Error: ${sanitizedMessage}`, 500);
+    }
   }
 };
 
 const handleZodError = (err: ZodError) => {
-  const errors = (err as any).errors.map(
-    (el: any) => `${el.path.join(".")}: ${el.message}`,
-  );
-  const message = `Invalid input data. ${errors.join(". ")}`;
+  const issues = (err as any).errors || (err as any).issues;
+  if (!issues) {
+    return new AppError("Validation Error", 400);
+  }
+  const errors = issues.map((el: any) => `${el.path.join(".")}: ${el.message}`);
+  const message = `Validation Error: ${errors.join(". ")}`;
   return new AppError(message, 400);
 };
 
-const sendErrorDev = (err: AppError, res: Response) => {
+const sendErrorDev = (err: any, res: Response) => {
+  Logger.error("ERROR 💥", err); // Log to file/console so we can see it
+  const isOperational = err.isOperational;
+
   res.status(err.statusCode).json({
     status: err.status,
-    error: err,
     message: err.message,
-    stack: err.stack,
+    // Only send technical details if it's NOT a standard operational error
+    // or if the dev explicitly needs it (always sending it but structured)
+    details: {
+      error: !isOperational ? err : undefined,
+      stack: !isOperational ? err.stack : undefined,
+    },
   });
 };
 
@@ -79,33 +99,28 @@ export const globalErrorHandler = (
   res: Response,
   next: NextFunction,
 ) => {
+  // Log the raw error for debugging purposes
+  console.error("🔥 GLOBAL ERROR HANDLER CAUGHT:", err);
+
   err.statusCode = err.statusCode || 500;
   err.status = err.status || "error";
 
   let error = { ...err };
   error.message = err.message;
-  error.stack = err.stack; // Preserve stack for dev
+  error.stack = err.stack;
 
   // Handle specific error types
   if (err instanceof Prisma.PrismaClientKnownRequestError) {
     error = handlePrismaError(err);
   } else if (err instanceof ZodError) {
     error = handleZodError(err);
-  } else if (error.name === "CastError") {
-    error = handleCastErrorDB(error);
-  } else if (error.code === 11000) {
-    error = handleDuplicateFieldsDB(error);
-  } else if (error.name === "ValidationError") {
-    error = handleValidationErrorDB(error);
-  } else if (error.name === "JsonWebTokenError") {
+  } else if (err.name === "CastError") {
+    error = handleCastErrorDB(err);
+  } else if (err.name === "JsonWebTokenError") {
     error = handleJWTError();
-  } else if (error.name === "TokenExpiredError") {
+  } else if (err.name === "TokenExpiredError") {
     error = handleJWTExpiredError();
   }
-
-  // Ensure status code is set if it was lost during transformation
-  if (!error.statusCode) error.statusCode = err.statusCode || 500;
-  if (!error.status) error.status = err.status || "error";
 
   if (env.NODE_ENV === "development") {
     sendErrorDev(error, res);

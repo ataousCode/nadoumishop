@@ -11,13 +11,13 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-secondary-foreground pt-16 pb-8">
+    <footer className="bg-[#232f3e] text-secondary-foreground pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <span className="text-2xl font-display font-bold text-white">
-              Nadoumi<span className="text-accent">Shop</span>
+              Nadoumi<span className="text-[#febd69]">Shop</span>
             </span>
             <p className="text-gray-400 text-sm leading-relaxed">
               Empowering your business with premium enterprise solutions.

@@ -3,6 +3,7 @@ export interface User {
   email: string;
   name?: string;
   role: "USER" | "ADMIN";
+  profilePicture?: string;
 }
 
 export interface SignupDto {

@@ -5,6 +5,7 @@ import { store } from "./store";
 import type { AppDispatch, RootState } from "./store";
 import { router } from "./routes";
 import { checkAuth, setInitialized } from "./features/auth/authSlice";
+import { getCart } from "./features/cart/cartSlice";
 import "./index.css";
 import { Loader2 } from "lucide-react";
 
@@ -15,7 +16,9 @@ const AppInit = () => {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
-      dispatch(checkAuth());
+      dispatch(checkAuth()).then(() => {
+        dispatch(getCart());
+      });
     } else {
       dispatch(setInitialized());
     }

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, ShoppingCart, MapPin } from "lucide-react";
 import { Button } from "../ui/button";
@@ -14,6 +15,7 @@ import { Badge } from "../ui/badge";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../store"; // Updated path to store
 import { logout } from "../../features/auth/authSlice"; // Updated path to features
+import { getCategories } from "../../features/category/categorySlice";
 
 import {
   AlertDialog,
@@ -39,13 +41,74 @@ export const Navbar = () => {
     navigate("/login");
   };
 
+  const { cart } = useSelector((state: RootState) => state.cart);
+  const cartItemCount =
+    cart?.items?.reduce((acc, item) => acc + item.quantity, 0) || 0;
+
+  const { categories } = useSelector((state: RootState) => state.category);
+
+  useEffect(() => {
+    if (categories.length === 0) {
+      dispatch(getCategories());
+    }
+  }, [dispatch, categories.length]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [userLocation, setUserLocation] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Fetch user location based on IP
+    const fetchLocation = async () => {
+      try {
+        const response = await fetch("https://get.geojs.io/v1/ip/country.json");
+        const data = await response.json();
+        if (data.name) {
+          setUserLocation(data.name);
+        }
+      } catch (error) {
+        console.error("Failed to fetch location:", error);
+        // Fallback silently or set default
+        setUserLocation("Select location");
+      }
+    };
+
+    fetchLocation();
+  }, []);
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (searchTerm.trim()) {
+        const params = new URLSearchParams();
+        params.set("search", searchTerm);
+        if (selectedCategory && selectedCategory !== "all") {
+          params.set("category", selectedCategory);
+        }
+        navigate(`/products?${params.toString()}`);
+      }
+    }, 500);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm, selectedCategory, navigate]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      const params = new URLSearchParams();
+      params.set("search", searchTerm);
+      if (selectedCategory && selectedCategory !== "all") {
+        params.set("category", selectedCategory);
+      }
+      navigate(`/products?${params.toString()}`);
+    }
+  };
+
   return (
     <header className="flex flex-col">
       {/* Top Bar - Dark Blue/Black in Amazon */}
       <div className="bg-[#131921] text-white py-2 px-4 flex items-center justify-between gap-4">
         {/* Left: Logo and Location */}
         <div className="flex items-center gap-4">
-          <Sidebar /> {/* Mobile Menu */}
           <Link
             to="/"
             className="text-2xl font-bold tracking-tight flex items-baseline"
@@ -57,44 +120,56 @@ export const Navbar = () => {
             <span className="text-gray-300 ml-4">Deliver to</span>
             <div className="flex items-center font-bold">
               <MapPin className="h-4 w-4 mr-1" />
-              <span>Algeria</span>
+              <span>{userLocation || "Select location"}</span>
             </div>
           </div>
         </div>
 
         {/* Center: Search Bar */}
-        <div className="flex-1 hidden md:flex max-w-3xl">
+        <form
+          onSubmit={handleSearchSubmit}
+          className="flex-1 hidden md:flex max-w-3xl"
+        >
           <div className="flex w-full rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-[#febd69]">
             <div className="w-auto bg-gray-100 border-r border-gray-300">
-              <Select defaultValue="all">
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
                 <SelectTrigger className="h-10 w-[60px] lg:w-[140px] rounded-none border-0 bg-gray-100 text-black text-xs focus:ring-0">
                   <SelectValue placeholder="All" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Departments</SelectItem>
-                  <SelectItem value="electronics">Electronics</SelectItem>
-                  <SelectItem value="computers">Computers</SelectItem>
-                  <SelectItem value="smart-home">Smart Home</SelectItem>
-                  <SelectItem value="arts-crafts">Arts & Crafts</SelectItem>
+                  {categories.map((cat) => (
+                    <SelectItem key={cat.id} value={cat.name}>
+                      {cat.name.charAt(0).toUpperCase() + cat.name.slice(1)}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
             <Input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="h-10 rounded-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-gray-500"
               placeholder="Search Nadoumi..."
             />
-            <Button className="h-10 rounded-none bg-[#febd69] hover:bg-[#f3a847] text-black border-none px-4">
+            <Button
+              type="submit"
+              className="h-10 rounded-none bg-[#febd69] hover:bg-[#f3a847] text-black border-none px-4"
+            >
               <Search className="h-6 w-6" />
             </Button>
           </div>
-        </div>
+        </form>
 
         {/* Right: Account, Orders, Cart */}
         <div className="flex items-center gap-2 lg:gap-6 text-sm">
           {/* Account & Lists - Added pb-2 to extend hover area downwards */}
           <div className="hidden md:flex flex-col justify-center hover:outline hover:outline-1 hover:outline-white p-2 pb-3 -mb-1 rounded cursor-pointer group relative">
             <div className="text-xs">
-              Hello, {isAuthenticated && user ? user.name : "sign in"}
+              Hello, {isAuthenticated && user ? user.name : "Sign in"}
             </div>
             <div className="font-bold">Account & Lists</div>
 
@@ -124,17 +199,12 @@ export const Navbar = () => {
                 ) : (
                   <>
                     <Link
-                      to="/account"
-                      className="text-sm hover:underline block mb-2"
+                      to="/dashboard"
+                      className="text-sm hover:underline block"
                     >
-                      Your Account
+                      Dashboard
                     </Link>
-                    <Link
-                      to="/orders"
-                      className="text-sm hover:underline block mb-2"
-                    >
-                      Your Orders
-                    </Link>
+                    {/* Wishlist moved to Dashboard */}
 
                     <AlertDialog>
                       <AlertDialogTrigger className="w-full text-left p-0 font-normal text-sm hover:underline text-red-600 bg-transparent border-0 cursor-pointer">
@@ -166,19 +236,17 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:block hover:outline hover:outline-1 hover:outline-white p-2 rounded cursor-pointer">
-            <div className="text-xs">Returns</div>
-            <div className="font-bold">& Orders</div>
-          </div>
+          {/* Returns & Orders Removed */}
 
           <Link
             to="/cart"
-            className="flex items-end gap-1 hover:outline hover:outline-1 hover:outline-white p-2 rounded"
+            title={`${cartItemCount} items in cart`}
+            className="flex items-end gap-1 hover:outline hover:outline-1 hover:outline-white p-2 rounded relative z-30 cursor-pointer"
           >
             <div className="relative">
               <ShoppingCart className="h-8 w-8" />
-              <Badge className="absolute -top-1 -right-2 h-5 w-5 flex items-center justify-center rounded-full bg-[#febd69] text-black font-bold p-0 border-none">
-                0
+              <Badge className="absolute -top-1 -right-2 h-5 w-5 flex items-center justify-center rounded-full bg-[#febd69] text-black font-bold p-0 border-none transition-transform hover:scale-110">
+                {cartItemCount}
               </Badge>
             </div>
             <span className="font-bold hidden sm:inline">Cart</span>

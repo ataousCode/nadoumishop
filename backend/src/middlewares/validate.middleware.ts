@@ -14,8 +14,9 @@ export const validate =
       next();
     } catch (error: any) {
       // Check if it's a ZodError
-      if (error.errors) {
-        const errorMessage = error.errors
+      const issues = error.errors || error.issues;
+      if (issues) {
+        const errorMessage = issues
           .map((err: any) => `${err.path.join(".")}: ${err.message}`)
           .join(", ");
         return next(new AppError(errorMessage, 400));
